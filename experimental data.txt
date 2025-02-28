@@ -1,0 +1,42 @@
+No P2 training results were added
+Validating runs\train\AFPN3+BIFPN+no P2+HFF\weights\best.pt...
+Fusing layers... 
+Model Summary: 460 layers, 39051423 parameters, 0 gradients, 227.5 GFLOPs
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 100/100 [00:06<00:00, 16.09it/s]
+                 all        796      24339       0.69       0.28       0.48      0.293
+wandb: Waiting for W&B process to finish, PID 20172
+wandb: Program ended successfully.
+
+
+Learn the results of the training without context
+Optimizer stripped from runs\train\AFPN3+BIFPN+P2+HFF\weights\best.pt, 83.2MB
+Model Summary: 504 layers, 39243825 parameters, 0 gradients, 236.5 GFLOPs
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 100/100 [00:19<00:00,  5.09it/s]
+                 all        796      24339      0.707      0.309      0.501      0.314
+
+
+Comparison of sampling methods Verify the results：
+
+area
+Model Summary: 512 layers, 39459484 parameters, 0 gradients, 257.8 GFLOPs
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 199/199 [00:31<00:00,  6.23it/s]
+                 all        796      24339        0.7       0.34      0.515      0.322
+Speed: 0.2ms pre-process, 24.8ms inference, 1.9ms NMS per image at shape (4, 3, 1024, 1024)
+
+blinear
+Model Summary: 512 layers, 39459484 parameters, 0 gradients, 257.9 GFLOPs
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 199/199 [00:32<00:00,  6.05it/s]
+                 all        796      24339      0.671       0.36      0.512      0.316
+Speed: 0.2ms pre-process, 25.0ms inference, 2.0ms NMS per image at shape (4, 3, 1024, 1024)
+
+bicubic
+Model Summary: 512 layers, 39459484 parameters, 0 gradients, 260.5 GFLOPs
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 199/199 [00:31<00:00,  6.25it/s]
+                 all        796      24339      0.668      0.359      0.508      0.316
+Speed: 0.2ms pre-process, 24.8ms inference, 1.8ms NMS per image at shape (4, 3, 1024, 1024)
+
+nearest
+Model Summary: 512 layers, 39459484 parameters, 0 gradients, 257.8 GFLOPs
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 199/199 [00:30<00:00,  6.47it/s]
+                 all        796      24339      0.693      0.334      0.508      0.315
+Speed: 0.2ms pre-process, 24.6ms inference, 1.8ms NMS per image at shape (4, 3, 1024, 1024)
